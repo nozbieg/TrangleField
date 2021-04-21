@@ -52,11 +52,23 @@ namespace TrangleField
                 var b = triangle.SideB;
                 var c = triangle.SideC;
 
-                field = Math.Sqrt((p * ((p - a) * (p - b) * (p - c))));
+                var fieldFunction = (p * ((p - a) * (p - b) * (p - c)));
+                if (fieldFunction == 0)
+                {
+                    return field;
+                }
+                else if (fieldFunction < 0)
+                {
+                    return field;
+                }
+                else
+                {
+                    field = Math.Sqrt(fieldFunction);
 
-                return field;
+                    return field;
+                }
             }
-            else return 0;
+            else return field;
 
         }
     }
