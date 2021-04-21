@@ -64,7 +64,7 @@ namespace TrangleField
                 else
                 {
                     field = Math.Sqrt(fieldFunction);
-
+                    field = Math.Round(field, 2);
                     return field;
                 }
             }
