@@ -14,6 +14,12 @@ namespace TrangleField
             SideB = 0;
             SideC = 0;
         }
+        public Triangle(double sideA, double sideB, double sideC)
+        {
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
+        }
 
         public double SideA { get; set; }
         public double SideB { get; set; }

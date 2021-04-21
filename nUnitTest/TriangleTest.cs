@@ -24,6 +24,7 @@ namespace nUnitTest
         {
             Assert.IsNotNull(triangle, "Object triangle should exist");
         }
+
         [Test]
         public void Triangle_InitParameter_Test()
         {
@@ -32,6 +33,17 @@ namespace nUnitTest
             Assert.AreEqual(triangle.SideC, 0, "SideC should be equal 0");
 
             Assert.AreEqual(triangle.SideValidation, false, "Triangle validation should be false");
+        }
+        [Test]
+        [TestCase(2, 2, 3)]
+        [TestCase(1, 1, 1)]
+        public void Triangle_CTOR_Parameter_Test(double sideA, double sideB, double sideC)
+        {
+            var triangleCtor = new Triangle(sideA, sideB, sideC);
+
+            Assert.AreEqual(triangleCtor.SideA, sideA, $"SideA should be equal {sideA}");
+            Assert.AreEqual(triangleCtor.SideB, sideB, $"SideB should be equal {sideB}");
+            Assert.AreEqual(triangleCtor.SideC, sideC, $"SideC should be equal {sideC}");
         }
 
         [Test]
