@@ -45,31 +45,23 @@ namespace TrangleField
         public double CalculateField(Triangle triangle, double parameterP)
         {
             double field = 0;
-            if (parameterP != 0)
+
+            var p = parameterP;
+            var a = triangle.SideA;
+            var b = triangle.SideB;
+            var c = triangle.SideC;
+
+            var fieldFunction = (p * ((p - a) * (p - b) * (p - c)));
+            if (fieldFunction == 0)
             {
-                var p = parameterP;
-                var a = triangle.SideA;
-                var b = triangle.SideB;
-                var c = triangle.SideC;
-
-                var fieldFunction = (p * ((p - a) * (p - b) * (p - c)));
-                if (fieldFunction == 0)
-                {
-                    return field;
-                }
-                else if (fieldFunction < 0)
-                {
-                    return field;
-                }
-                else
-                {
-                    field = Math.Sqrt(fieldFunction);
-                    field = Math.Round(field, 2);
-                    return field;
-                }
+                return field;
             }
-            else return field;
-
+            else
+            {
+                field = Math.Sqrt(fieldFunction);
+                field = Math.Round(field, 2);
+                return field;
+            }
         }
     }
 }

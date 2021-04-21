@@ -26,6 +26,16 @@ namespace nUnitTest
         {
             Assert.IsNotNull(triangleField, "Object triangleField should exist");
         }
+
+        [Test]
+        public void TriangleCTOR_TriangleEqual_Test()
+        {
+            var newTriangle = new Triangle();
+            var triangleFieldNew = new TriangleField(newTriangle);
+
+            Assert.IsNotNull(triangleFieldNew, "Object triangleFieldNew should exist");
+        }
+
         [Test]
         public void ParameterP_InitEqual_Test()
         {
@@ -53,14 +63,26 @@ namespace nUnitTest
         [TestCase(3, 4, 2, 2.90d)]
         [TestCase(1, 2, 3, 0d)]
         [TestCase(1, 1, 7, 0d)]
+        [TestCase(0, 0, 0, 0d)]
+        [TestCase(1, 100, 2, 0d)]
         public void CalculateField_Equal_Test(double sideA, double sideB, double sideC, double fieldResult)
         {
             triangleField.Triangle.SideA = sideA;
             triangleField.Triangle.SideB = sideB;
             triangleField.Triangle.SideC = sideC;
 
+
+
             var field = triangleField.CalculateField(triangleField.Triangle, triangleField.ParameterP);
             Assert.AreEqual(fieldResult, field, $"Field should be equal to: {fieldResult}");
+        }
+
+        [Test]
+        public void CalculateField_EqualZero_Test()
+        {
+            var field = triangleField.CalculateField(triangleField.Triangle, triangleField.ParameterP);
+
+            Assert.AreEqual(0, field, $"Field should be equal to: 0");
         }
     }
 }
