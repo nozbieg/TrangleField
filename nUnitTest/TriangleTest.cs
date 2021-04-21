@@ -11,7 +11,7 @@ namespace nUnitTest
     [TestFixture]
     class TriangleTest
     {
-        private Triangle triangle;
+        Triangle triangle;
 
         [SetUp]
         public void SetUp()
@@ -28,11 +28,11 @@ namespace nUnitTest
         [Test]
         public void Triangle_InitParameter_Test()
         {
-            Assert.AreEqual(triangle.SideA, 0, "SideA should be equal 0");
-            Assert.AreEqual(triangle.SideB, 0, "SideB should be equal 0");
-            Assert.AreEqual(triangle.SideC, 0, "SideC should be equal 0");
+            Assert.AreEqual(0, triangle.SideA, "SideA should be equal 0");
+            Assert.AreEqual(0, triangle.SideB, "SideB should be equal 0");
+            Assert.AreEqual(0, triangle.SideC, "SideC should be equal 0");
 
-            Assert.AreEqual(triangle.SideValidation, false, "Triangle validation should be false");
+            Assert.AreEqual(false, triangle.SideValidation, "Triangle validation should be false");
         }
         [Test]
         [TestCase(2, 2, 3)]
@@ -41,9 +41,9 @@ namespace nUnitTest
         {
             var triangleCtor = new Triangle(sideA, sideB, sideC);
 
-            Assert.AreEqual(triangleCtor.SideA, sideA, $"SideA should be equal {sideA}");
-            Assert.AreEqual(triangleCtor.SideB, sideB, $"SideB should be equal {sideB}");
-            Assert.AreEqual(triangleCtor.SideC, sideC, $"SideC should be equal {sideC}");
+            Assert.AreEqual(sideA, triangleCtor.SideA, $"SideA should be equal {sideA}");
+            Assert.AreEqual(sideB, triangleCtor.SideB, $"SideB should be equal {sideB}");
+            Assert.AreEqual(sideC, triangleCtor.SideC, $"SideC should be equal {sideC}");
         }
 
         [Test]
@@ -58,11 +58,11 @@ namespace nUnitTest
             triangle.SideB = sideB;
             triangle.SideC = sideC;
 
-            Assert.AreEqual(triangle.SideA, sideA, $"Parameter A should be equal {sideA}");
-            Assert.AreEqual(triangle.SideB, sideB, $"Parameter B should be equal {sideB}");
-            Assert.AreEqual(triangle.SideC, sideC, $"Parameter C should be equal {sideC}");
+            Assert.AreEqual(sideA, triangle.SideA, $"Parameter A should be equal {sideA}");
+            Assert.AreEqual(sideB, triangle.SideB, $"Parameter B should be equal {sideB}");
+            Assert.AreEqual(sideC, triangle.SideC, $"Parameter C should be equal {sideC}");
 
-            Assert.AreEqual(triangle.SideValidation, validation, $"Triangle validation should be: {validation}");
+            Assert.AreEqual(validation, triangle.SideValidation, $"Triangle validation should be: {validation}");
         }
     }
 }
