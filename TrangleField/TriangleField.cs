@@ -38,7 +38,7 @@ namespace TrangleField
 
         double CalculateParameterP(double sideA, double sideB, double sideC)
         {
-            var parameterP = (1 / 2) * (sideA + sideB + sideC);
+            var parameterP = (sideA + sideB + sideC) / 2;
             return parameterP;
         }
 
